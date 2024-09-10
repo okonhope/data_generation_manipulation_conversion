@@ -210,7 +210,37 @@ select 10 as Eric, 20 as Rejoice, 30 as debby, 40 as miky, Eric + Rejoice + debb
  >> Example:
 
  ```sql
- select power(4,2);
+ select power(4,2) as four squared;
 
- select 10 as A, B as 4, A * 
+
+ select 10 as A, B as 4, A * power(A,B);
+
+
  ```
+ > - Pi ( ) function = 3.14159
+ >> Example:
+ ```sql
+ 
+ select 2 * pi()
+
+ ```
+
+> - Mod ( ) function : Gives the remainder of a division
+>> Example:
+
+```sql
+select mod(70,9);
+
+```
+> - Sign( ) and abs( )function: The sign() function is used to determine if a number is positive or negative or zero. The abs( )function returns the absolute value
+>>Example
+
+```sql
+select sign(-7.5233), abs(-7.5233);
+
+```
+
+When dealing with non integers (real numbers i.e decimal numbers )
+> - Trunc( ) : used to remove decimals
+> - round up( ): used to round up to the nearest value
+> - floor (): 
