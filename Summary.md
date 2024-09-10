@@ -73,6 +73,22 @@ select reverse('nohtyp evol i');
 select reverse('nohtyp htiw gnidoc nuf sti');
 
 select reverse('sis rejoice is a pretty lady');
+
+```
+
+> - Translate( ) : Helps remove or replace  unwanted characters from a string
+>>Examples:
+
+```sql
+select translate('(857)-234-5678','()-','');
+---The result will be 8572345678
+
+select translate(('cpoork'),'pr','');
+ ---The result will be cook
+
+select translate('cpoork','pr','o');  
+---The result will be coook
+
 ```
 
 > - ltrim( ), rtrim( ), trim( ) : for removal of spaces from the begining or ending of a string or from both ends.
@@ -127,3 +143,74 @@ from (values ('operation and maintenance')) as str(val);
 --it returns "tion and maintenance"
 
 ```
+
+#  **Numeric Data**
+-------------
+
+Lets have a look at some arithmetic operators and built-in functions in snowflake used in numeric calculation, conversion, generation. 
+
+
+  > - (+) : for addition of numbers
+  >> Examples:
+```sql
+
+select 10 + 10;
+
+---Answer: 20
+
+select 10 as Eric, 20 as Rejoice, 30 as debby, 40 as miky, Eric + Rejoice + debby +  miky as answer;
+
+--- the result is 100
+
+```
+  > - (-): Subtraction
+  >> Example:
+  ```sql
+  select 50 - 40;
+  ```
+  > - (*) : for multiplication
+  >>Examples:
+
+  ```sql
+  select 40 * 10;
+---Answer: 400
+
+  --- To calculate the circumference of a circle = 2πr
+  select 10 as radius, 3.142 as pi, 2 * pi * radius as circumference;
+
+  ---Answer :62.840
+
+  --To calculate the area of a circle = (πr²)
+  select 10 as radius, 3.142 as pi, pi * power(radius,2) as circumference;
+
+  ---Answer : 314.2
+  ```
+ 
+ > - (/) : Division
+ >> Example:
+
+ ```sql
+ select 10/20;
+ ---Answer : 0.5000
+ ```
+
+ > - BODMAS
+ >>Example:
+
+ ```sql
+ select ((10 * 40) + 10 - 30)/20;
+
+ ---Answer: 19
+
+ select 3 * 6 - 10 / 2 + 2;
+ ---Answer : 15
+ ```
+
+ >- Power( ) function : used to raise a number to any number of multiple
+ >> Example:
+
+ ```sql
+ select power(4,2);
+
+ select 10 as A, B as 4, A * 
+ ```
