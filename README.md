@@ -1,4 +1,4 @@
-# This is a summary of chapter 6; Data Generation,Manipulation, and Converion. 
+# This is a summary of chapter 6; Data Generation,Manipulation, and Conversion. 
 
 In this chapter we will be working with;
 
