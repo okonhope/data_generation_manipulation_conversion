@@ -101,4 +101,29 @@ select position('farm',str.val) as pos1,
  position('farm',str.val,10) as pos2,
  position('like',str.val) as pos3
        from (values ('victor is a farmer and i like farming')) as str(val);
+
+```
+
+> - Substr( ) : Gives only the  part of a string you need. It takes a string, a starting position, and an optional number of characters.
+>>Examples:
+
+```sql
+substr(str.val, 11) as rest_of_string
+from (values ('operation and maintenance')) as str(val);
+
+select substr(str.val, 2, 16) as start_of_string, 
+substr(str.val, 17) as rest_of_string
+from (values ('operation and maintenance')) as str(val);
+
+select substr(str.val, 2, 16) as start_of_string, 
+from (values ('operation and maintenance')) as str(val);
+
+
+--You could use the position( ) function as a parameter to the substr( ) function  to determine the starting position.
+
+select substr(str.val, position('tion',str.val))
+from (values ('operation and maintenance')) as str(val);
+
+--it returns "tion and maintenance"
+
 ```
