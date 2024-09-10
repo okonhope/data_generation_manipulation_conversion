@@ -79,8 +79,26 @@ select reverse('sis rejoice is a pretty lady');
 >> Examples:
 
 ```sql
-select ltrim(str.val), rtrim(str.val), trim(str.val) from values( '   goat   ');
+
+select ltrim(str.val), rtrim(str.val), trim(str.val) from values( '   goat   ') as str(val);
 
 ```
 
+> - Length( ) : To show the length of a string
+>> Examples:
 
+```sql
+
+select length(ltrim(str.val)) as str1_len, length(rtrim(str.val)) as str2_len, length(trim(str.val)) as str3_len from values( '   goat   ') as str(val);
+
+```
+
+>- Position( ) : To find the position of a substring within a strng
+>>Example:
+
+```sql
+select position('farm',str.val) as pos1,
+ position('farm',str.val,10) as pos2,
+ position('like',str.val) as pos3
+       from (values ('victor is a farmer and i like farming')) as str(val);
+```
