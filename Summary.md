@@ -240,7 +240,92 @@ select sign(-7.5233), abs(-7.5233);
 
 ```
 
-When dealing with non integers (real numbers i.e decimal numbers )
-> - Trunc( ) : used to remove decimals
-> - round up( ): used to round up to the nearest value
-> - floor (): 
+When dealing with non integers (real numbers i.e decimal numbers ), the following functions apply
+> - trunc( ) :  used to remove decimals
+> - round up( ):used to round up to the nearest value
+> - floor( ) :  used to round to the nearest lowerinteger
+> - ceil( ) :   used to round to the nearest higher integer
+
+
+Here's an example:
+```sql
+Select trunc(6.49), round(6.4955,2), floor(6.49), ceil(6.49)
+
+```
+![result](trunc,round,fxn.png)
+
+# **Numeric Conversion**
+
+numeric Strings can be converted to a numbers
+> - imlicit conversion:  Here snowflake sees the need for the conversion and attempts to do so. It could return an error if the conversion fails
+
+Heres an example
+```sql
+select 123.45 as real_num union  select '678.90' as real_num;
+
+```
+
+```sql
+select 123.45 as real_num union select 'AAA.BB' as real_num;
+```
+
+
+> - explicit conversion :  Here you are able to specify that the string be converted using the following functions
+
+
+>>>>>* The cast( ) function
+>>>>>* The cast operator : :
+>>>>>* A specific conversion function such as to_decimal ( )
+
+Here's an example using all three options;
+we will be converting a string into decimal value of type **number(7,2)** 7 stands for the whole number part of a decimal and 2 stands for the number of decimal places
+
+
+```sql
+Select cast(str.val as number(7,2)) as cast_val,
+str.val::number(7,2) as cast_opr_val,
+to_decimal(str.val, 7,2) as to_dec_val
+from(values('15873.26')) as str(val);
+
+```
+
+NOte : The cast() function and the cast operator will return an error if the number contains any non numeric character only the to_decimal will not but with a formatting string
+
+Here's an example;
+
+```sql
+select to_decimal(str.val,'$99999.99',7,2) as to_dec_val from (values ('$15873.26')) as str(val);
+
+```
+
+# **Number Generation**
+For fabricating and generating all types of data
+> - generator( ) function : A table function used to generate rows of data.
+> - random( ) function : generates a random number for each row
+
+Here's an example;
+
+```sql
+
+Select random() from table(generator(rowcount=>5));
+
+```
+
+> - seq1( ) function : Used to display sequence of numbers rather than a random set
+
+Here's an example:
+
+```sql
+
+Select seq1() from table(generator(rowcount => 5));
+
+```
+
+Here's an example that generates date values corresponding to the first day of the month for every month in 2024
+
+```sql
+select to_date('01/' ||  to_char(seq1() + 1) || 
+'/2024','DD/MM/YYYY') as first_of_month
+from table(generator(rowcount => 12));
+
+```
