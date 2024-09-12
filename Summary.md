@@ -330,3 +330,25 @@ select to_date('01/' ||  to_char(seq1() + 1) ||
 from table(generator(rowcount => 12));
 
 ```
+
+# **TEMPORAL DATA**
+
+Date and Timestamp Generation
+
+Dates and time can be generated using the following functions
+
+* date_from_parts( )
+* time_from_parts() 
+* timestamp_from_parts( )
+
+Here's an example:
+
+```sql
+select date_from_parts(2024, 9, 12) as my_date,
+ time_from_parts(10, 22, 47) as my_time;
+
+
+select timestamp_from_parts(date_from_parts(2024, 9, 12),
+time_from_parts(10, 22, 47)) as my_timestamp;
+
+```
