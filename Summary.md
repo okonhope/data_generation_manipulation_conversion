@@ -324,6 +324,7 @@ Select seq1() from table(generator(rowcount => 5));
 Here's an example that generates date values corresponding to the first day of the month for every month in 2024
 
 ```sql
+
 select to_date('01/' ||  to_char(seq1() + 1) || 
 '/2024','DD/MM/YYYY') as first_of_month
 from table(generator(rowcount => 12));
