@@ -18,8 +18,9 @@ select 'I am 8 years old';
 select 'a + 2';
 ```
 
-! [generating codes!
-](Screenshot 2024-09-17 164348.png)
+![generating codes](/workspaces/data_generation_manipulation_conversion/Picture/Screenshot 2024-09-17 164348.png)
+
+
 
 
 
