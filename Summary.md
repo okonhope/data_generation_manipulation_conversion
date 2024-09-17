@@ -17,7 +17,8 @@ select 'I am 8 years old';
 
 select 'a + 2';
 ```
-![image!](Picture/Screenshot 2024-09-17 164348.png)
+![image!](Screenshot 2024-09-17 164348.png)
+
 
 
 
