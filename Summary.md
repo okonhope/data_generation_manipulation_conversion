@@ -5,7 +5,7 @@
 >Another name for a character data is a **string**. A string is any data enclosed in single quote (' '). It could be a number or alphabet or both.
 
 
-Lets have a look at some built-in functions in snowflake used in string generation,manipulation, etraction and searching 
+Lets have a look at some built-in functions in snowflake used in string generation,manipulation, extraction and searching 
 
 > - (' ') - Single quotes : used to generate or create strings
 > > Examples:  
@@ -17,6 +17,11 @@ select 'I am 8 years old';
 
 select 'a + 2';
 ```
+
+! [generating codes!
+](Screenshot 2024-09-17 164348.png)
+
+
 
 > - | | or concat( ) : For concatenating or joining strings together
 >> Examples:
